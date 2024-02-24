@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 import COLORS from "@/constants/public/COLORS";
+import { useRouter } from "expo-router";
 
 type Props = {
   text: string;
@@ -14,6 +15,7 @@ type Props = {
 };
 
 const RegButton = ({ text, mt }: Props) => {
+  const router = useRouter();
   const unconditionalStyles = StyleSheet.create({
     container: {
       width: "100%",
@@ -38,7 +40,12 @@ const RegButton = ({ text, mt }: Props) => {
   const conditionalStyles = (regBtnLabel?: string) => StyleSheet.create({});
   return (
     <View style={unconditionalStyles.container}>
-      <TouchableOpacity style={unconditionalStyles.btn}>
+      <TouchableOpacity
+        onPress={() => {
+          router.push("/home/");
+        }}
+        style={unconditionalStyles.btn}
+      >
         <Text style={unconditionalStyles.textBtn}> {text} </Text>
       </TouchableOpacity>
     </View>

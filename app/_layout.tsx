@@ -32,7 +32,6 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -58,6 +57,10 @@ function RootLayoutNav() {
       <Stack initialRouteName="index">
         <Stack.Screen
           name="index"
+          options={{ presentation: "modal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="home"
           options={{ presentation: "modal", headerShown: false }}
         />
         <Stack.Screen
