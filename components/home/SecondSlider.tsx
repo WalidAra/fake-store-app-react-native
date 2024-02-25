@@ -5,7 +5,7 @@ import SecondaryProductCard from "./SecondaryProductCard";
 
 const SecondSlider = () => {
   const unconditionalStyles = StyleSheet.create({});
-  const conditionalStyles = (regBtnLabel?: string) => StyleSheet.create({});
+  const conditionalStyles = () => StyleSheet.create({});
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);

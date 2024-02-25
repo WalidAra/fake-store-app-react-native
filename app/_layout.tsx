@@ -5,12 +5,14 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
 import { useColorScheme } from "@/components/useColorScheme";
 import COLORS from "@/constants/public/COLORS";
+import { TouchableOpacity } from "react-native";
+import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -51,6 +53,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const router = useRouter();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
@@ -68,12 +71,12 @@ function RootLayoutNav() {
           options={{
             presentation: "modal",
             headerShown: true,
-            headerTitle:'',
+            headerTitle: "",
             headerStyle: {
               backgroundColor: COLORS.primary,
             },
 
-            headerShadowVisible:false,
+            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
@@ -81,12 +84,65 @@ function RootLayoutNav() {
           options={{
             presentation: "modal",
             headerShown: true,
-            headerTitle:'',
+            headerTitle: "",
             headerStyle: {
               backgroundColor: COLORS.primary,
             },
 
-            headerShadowVisible:false,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="all"
+          options={{
+            presentation: "modal",
+            headerShown: false,
+            headerTitle: "",
+            headerStyle: {
+              backgroundColor: COLORS.primary,
+            },
+
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="[id]"
+          options={{
+            presentation: "modal",
+            headerShown: true,
+            headerTitle: "Product",
+            headerStyle: {
+              backgroundColor: "#f1f5f8",
+            },
+            headerShadowVisible: false,
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              color: COLORS.primary,
+            },
+
+            headerLeft: () => {
+              return (
+                <TouchableOpacity
+                  onPress={() => {
+                    router.back();
+                  }}
+                >
+                  <AntDesign name="close" size={24} color={COLORS.primary} />
+                </TouchableOpacity>
+              );
+            },
+            headerRight: () => {
+              return (
+                <TouchableOpacity>
+                  <SimpleLineIcons
+                    name="menu"
+                    size={24}
+                    color={COLORS.primary}
+                  />
+                </TouchableOpacity>
+              );
+            },
           }}
         />
       </Stack>

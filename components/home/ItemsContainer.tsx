@@ -3,8 +3,10 @@ import React from "react";
 import COLORS from "@/constants/public/COLORS";
 import MainSlider from "./MainSlider";
 import SecondSlider from "./SecondSlider";
+import { useRouter } from "expo-router";
 
 const ItemsContainer = () => {
+  const router = useRouter();
   const unconditionalStyles = StyleSheet.create({
     container: {
       flex: 1,
@@ -13,7 +15,7 @@ const ItemsContainer = () => {
       paddingVertical: 10,
     },
   });
-  const conditionalStyles = (regBtnLabel?: string) => StyleSheet.create({});
+  const conditionalStyles = () => StyleSheet.create({});
 
   return (
     <View style={unconditionalStyles.container}>
@@ -29,13 +31,16 @@ const ItemsContainer = () => {
       >
         <Text style={{ fontWeight: "bold", fontSize: 20 }}>Latest</Text>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            router.push("/all/");
+          }}
+        >
           <Text style={{ fontWeight: "500", color: COLORS.smTxt }}>
             Show All
           </Text>
         </TouchableOpacity>
       </View>
-
       <SecondSlider />
     </View>
   );

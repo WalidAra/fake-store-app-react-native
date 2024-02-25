@@ -9,6 +9,7 @@ const HomeLayout = () => {
       <Tabs.Screen name="plus" options={{ headerShown: false }} />
       <Tabs.Screen name="cart" options={{ headerShown: false }} />
       <Tabs.Screen name="user" options={{ headerShown: false }} />
+
     </Tabs>
   );
 };
