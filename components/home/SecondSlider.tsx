@@ -33,6 +33,7 @@ const SecondSlider = () => {
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
+        height: 160,
       }}
     >
       {isLoading ? (

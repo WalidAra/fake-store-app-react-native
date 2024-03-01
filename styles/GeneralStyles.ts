@@ -3,14 +3,19 @@ import { StyleSheet } from "react-native";
 
 const Styles = {
   unconditionalStyles: StyleSheet.create({
-    container:{
+    container: {
       flex: 1,
       padding: 30,
-      backgroundColor:COLORS.primary,
+      backgroundColor: COLORS.primary,
     },
-    smallText:{
-      color:COLORS.smTxt
-    }
+    smallText: {
+      color: COLORS.smTxt,
+    },
+    centerDiv: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   }),
   conditionalStyles: () => StyleSheet.create({}),
 };

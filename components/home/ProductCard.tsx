@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import React, { useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import COLORS from "@/constants/public/COLORS";
 
@@ -49,7 +49,7 @@ const ProductCard = ({ product }: Props) => {
     });
   return (
     <View style={unconditionalStyles.card}>
-      <View >
+      <View>
         <Image
           resizeMode="cover"
           style={unconditionalStyles.imgCard}
@@ -59,12 +59,10 @@ const ProductCard = ({ product }: Props) => {
 
       <View style={unconditionalStyles.infoCard}>
         <Text numberOfLines={2} style={unconditionalStyles.title}>
-          {" "}
-          {product.title}{" "}
+          {product.title}
         </Text>
         <Text style={{ fontWeight: "500", color: COLORS.smTxt }}>
-          {" "}
-          {product.category}{" "}
+          {product.category}
         </Text>
         <View
           style={{
