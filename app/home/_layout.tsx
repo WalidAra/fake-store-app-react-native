@@ -9,7 +9,6 @@ const HomeLayout = () => {
     <Tabs
       initialRouteName="index"
       screenOptions={{
-
         tabBarShowLabel: false,
         tabBarActiveTintColor: "white",
         tabBarStyle: {
